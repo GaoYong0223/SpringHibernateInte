@@ -32,4 +32,22 @@ public class ContactDAOImpl implements ContactDAO {
 		}
 
 	}
+	
+	public Contact getContactByEmail(String email){
+		try{
+			if (email != null && !email.equals("")) {
+	            List<Contact> usr = sessionFactory.getCurrentSession().createQuery("from User where email ='" + email + "'").list();
+	            if (usr.size() == 1) {
+	                return usr.get(0);
+	            } else {
+	                return null;
+	            }
+	        } else {
+	            return null;
+	        }
+		}catch (Exception e){
+			return null;
+		}
+
+	}
 }
