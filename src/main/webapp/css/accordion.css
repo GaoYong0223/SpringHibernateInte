@@ -1,0 +1,7 @@
+.accordionWrapper{display:inline-block; background-color:#fff; overflow:hidden;}
+.accordionWrapper img{vertical-align:top; border:0; margin:0; padding:0}
+.accordionWrapper div{display:inline; float:left; margin:auto;}
+.accordionWrapper div.title{cursor:pointer; background: url(../images/tab-bg.jpg) no-repeat; width:662px; height:45px; line-height:45px; color:#2a2a2a; font-size:18px; font-family: "Myriad Pro"; padding:0 0 0 14px;}
+.accordionWrapper div.content{display:none; background:#e3f0fd; width:608px; padding:15px 27px; color:#114978; font-weight:bold; font-size:13px;}
+.accordionWrapper div.content span{color:#363636;}
+
