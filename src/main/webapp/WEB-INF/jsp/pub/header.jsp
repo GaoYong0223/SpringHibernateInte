@@ -29,8 +29,8 @@
 			</sec:authorize>
 			
 			<sec:authorize access="isAnonymous()">
-				<li><a href="login.html">Log In</a></li>
-	           <li><a href="registration.html">Sign Up</a></li>
+				<li><a href="login">Log In</a></li>
+	           <li><a href="registration">Sign Up</a></li>
 			</sec:authorize>
             <li><a href="#">Help</a></li>
           </ul>
