@@ -25,7 +25,7 @@ public class UserLoginService implements UserDetailsService{
             if (user == null) {
                 return null;
             }else{
-            	return new CustomUser(user.getId(), user.getEmail(), user.getLastname(),);
+            	return new CustomUser(user.getId(), user.getEmail(), user.getLastname(),"ROLE_USER");
             }
      
            

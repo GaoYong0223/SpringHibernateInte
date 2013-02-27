@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUser implements Serializable, UserDetails {
@@ -28,7 +29,7 @@ public class CustomUser implements Serializable, UserDetails {
 		this.id = id;
 		this.password = password;
 		this.username = username;
-		this.grantedAuthorities.add(arg0);
+		this.grantedAuthorities.add(new GrantedAuthorityImpl(auth));
 	}
 
 	public Collection<GrantedAuthority> getAuthorities() {

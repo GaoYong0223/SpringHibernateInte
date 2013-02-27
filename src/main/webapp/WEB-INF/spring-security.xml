@@ -23,9 +23,11 @@
 	</authentication-manager> -->
 	
 	 <authentication-manager>
-         <authentication-provider user-service-ref="userService">
+         <authentication-provider user-service-ref="userLoginService">
             <!-- <password-encoder hash="sha" /> -->
          </authentication-provider>       
     </authentication-manager>
+    
+	 <beans:bean id="userLoginService" class="net.viralpatel.contact.service.UserLoginService"/>
 	
 </beans:beans>
