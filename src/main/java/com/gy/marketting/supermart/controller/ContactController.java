@@ -29,10 +29,7 @@ public class ContactController {
 	
 	private Logger logger = LoggerFactory.getLogger(ContactController.class) ;
 
-	@RequestMapping("/index")
-	public String listContacts(ModelMap model, Principal principal) {
-		return "/pub/index";
-	}
+	
 	
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

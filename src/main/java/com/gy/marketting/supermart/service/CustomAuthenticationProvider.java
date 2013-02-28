@@ -66,7 +66,7 @@ public class CustomAuthenticationProvider  extends AbstractUserDetailsAuthentica
 		}
 		if (user == null) {
 			throw new AuthenticationServiceException(
-					"UserDetailsService returned null, which is an interface contract violation");
+					messages.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials", new Locale("en")));
 		}
 		return user;
 	}

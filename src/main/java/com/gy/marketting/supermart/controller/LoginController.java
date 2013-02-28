@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
  
 @Controller
 public class LoginController {
@@ -24,11 +25,16 @@ public class LoginController {
 		return "hello";
  
 	}
+	
+	@RequestMapping("/index")
+	public String listContacts(ModelMap model, Principal principal) {
+		return "/pub/index";
+	}
  
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
 		logger.debug("{} is called by user","login" );
-		return "login";
+		return "/pub/login";
  
 	}
  
@@ -36,14 +42,14 @@ public class LoginController {
 	public String loginerror(ModelMap model) {
  
 		model.addAttribute("error", "true");
-		return "login";
+		return "/pub/login";
  
 	}
  
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
 		
-		return "login";
+		return "/pub/index";
  
 	}
 	
@@ -51,6 +57,26 @@ public class LoginController {
 	public String requestHeader(ModelMap model) {
 		
 		return "pub/header";
+ 
+	}
+	
+	@RequestMapping(value="/registration", method = RequestMethod.GET)
+	public String registration(ModelMap model) {
+		
+		return "pub/registration";
+ 
+	}
+	
+	@RequestMapping(value="/registrationform", method = RequestMethod.POST)
+	public String registrationForm(@RequestParam("registType") String type) {
+		logger.debug("registrationForm type: {}", type);
+		if(type!=null && type.equals("marketer")){
+			return "pub/registration-marketers";
+		}else if(type!=null && type.equals("talent")){
+			return "pub/registration-talents";
+		}else{
+			return "pub/registration";
+		}
  
 	}
  
