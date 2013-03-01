@@ -22,6 +22,11 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Transactional
+	public void updateContact(User contact) {
+		contactDAO.updateContact(contact);
+	}
+	
+	@Transactional
 	public List<User> listContact() {
 
 		return contactDAO.listContact();
@@ -30,5 +35,9 @@ public class ContactServiceImpl implements ContactService {
 	@Transactional
 	public void removeContact(Integer id) {
 		contactDAO.removeContact(id);
+	}
+	
+	public User getUserByUsername(String email){
+		return contactDAO.getContactByEmail(email);
 	}
 }

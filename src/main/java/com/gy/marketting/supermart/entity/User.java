@@ -65,6 +65,10 @@ public class User {
 	@Lob
 	private Blob photo;
 	
+	@Column(name="informationsource")
+	private String informationsource;
+	
+	
 	public String getEmail() {
 		return email;
 	}
@@ -156,5 +160,11 @@ public class User {
 	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
-	
+	public String getInformationsource() {
+		return informationsource;
+	}
+	public void setInformationsource(String informationsource) {
+		this.informationsource = informationsource;
+	}
+
 }

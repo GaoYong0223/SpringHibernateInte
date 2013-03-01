@@ -1,74 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Marketing Supermart</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+<!-- Jquery Validator -->
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+
+<style type="text/css">
+label.error { float: left; display:inline-block; color: red; padding-left: .5em; vertical-align: top; }
+p { clear: both; }
+</style>
+
+  <script>
+  $(document).ready(function(){
+    $("#regMarketerForm").validate();
+  });
+  </script>
+  
+  
 </head>
 <body class="inner">
 <div class="wrapper2">
   <div class="main-container">
-    <!--header start-->
-    <div class="header">
-      <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" /></a></div>
-      <div class="top-nav">
-        <div class="left-navi">
-          <ul>
-            <li><a href="#">Who<br/>
-              <span>we are</span></a></li>
-            <li><a href="#">How<br/>
-              <span>to contact</span></a></li>
-            <li><a href="#">Why<br/>
-              <span>Choose us</span></a></li>
-            <li><a href="#">How<br/>
-              <span>it works</span></a></li>
-          </ul>
-        </div>
-        <div class="top-leftic"><img src="images/f-login.png" alt="" /></div>
-        <div class="right-navi">
-          <ul>
-             <li><a href="login.html">Log In</a></li>
-            <li><a href="registration.html">Sign Up</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </div>
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
-      <div class="mid-nav">
-        <div class="navigation">
-          <ul>
-            <li><a href="projects/projects-categories.html">Projects</a></li>
-            <li><a href="jobs/jobs-categories.html">Jobs</a></li>
-            <li><a href="freelancers/talents-categories.html">Talents</a></li>
-            <li><a href="deals/deals-categories.html">Deals</a></li>
-          </ul>
-        </div>
-        <div class="search-box">
-          <div class="search-txt"> Search :</div>
-          <div class="search-drop">
-            <select name="">
-              <option>sample 1</option>
-              <option>sample 2</option>
-            </select>
-          </div>
-          <div class="search-inn">
-            <div class="search-inbox">
-              <input name="" type="text" />
-            </div>
-            <div class="search-ico"><a href="#"><img src="images/search-ic.png" alt="" /></a></div>
-            <div class="clr"></div>
-          </div>
-          <div class="clr"></div>
-        </div>
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
-     
-    </div>
-    <div class="clr"></div>
-    <!--header end-->
+    <%@ include file="/WEB-INF/jsp/pub/header.jsp"%>
     <!--middle start-->
     <div class="middle-container">
     
@@ -86,65 +47,69 @@
     </div>
     <div class="signUparea">
     <div class="reg1prt">
-    <form action="" method="post">
+    
+    <!-- Registration marketers form start -->
+    
+    <form:form id="regMarketerForm" name="regMarketerForm" method="post" action="registrationmarketer" commandName="user">
     <div class="fstNmePrt">
-    <div class="firstnmesec">First Name :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="firstnmesec"><form:label path="firstname">First Name :</form:label></div>
+    <div class="fildssection"><form:input name="" type="text" path="firstname" class="required" maxlength="40"/></div>
+    </div>
+    
+    
+    <div class="fstNmePrt">
+    <div class="firstnmesec"><form:label path="lastname">Last Name :</form:label></div>
+    <div class="fildssection"><form:input name="" type="text" path="lastname"  class="required" maxlength="40"/></div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">Last Name :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="firstnmesec"><form:label path="email">Email Address :</form:label></div>
+    <div class="fildssection"><form:input name="" type="text" path="email" class="required email" maxlength="50"/></div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">Email Address :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="firstnmesec"><form:label path="companyname">Company Name (optional) :</form:label></div>
+    <div class="fildssection"><form:input name="" type="text"  path="companyname" maxlength="40"/></div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">Company Name (optional) :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
-    </div>
-    
-    <div class="fstNmePrt">
-    <div class="firstnmesec">Country :</div>
+    <div class="firstnmesec"><form:label path="country">Country :</form:label></div>
     <div class="fildssection">
-            <select class="jmpPrt" name="jumpMenu">
-          <option>Select</option>
-        </select>
+            <form:select class="jmpPrt" name="jumpMenu" path="country">
+          <%@ include file="/WEB-INF/jsp/util/countrylist.jsp"%>
+        </form:select>
     </div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">Username :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="firstnmesec"><form:label path="username">Username :</form:label></div>
+    <div class="fildssection"><form:input name="" type="text" path="username" class="required" minlength="5" maxlength="40"/></div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">Password :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="firstnmesec"><form:label path="password">Password :</form:label></div>
+    <div class="fildssection"><form:password name="" path="password" class="required" minlength="6" maxlength="20"/></div>
     </div>
     
     <div class="fstNmePrt">
     <div class="firstnmesec">Retype Password :</div>
-    <div class="fildssection"><input name="" type="text" /></div>
+    <div class="fildssection"><input id="confirmpassword" name="confirmpassword" type="password" value="" class="required" minlength="6" maxlength="20"/></div>
     </div>
     
     <div class="fstNmePrt">
-    <div class="firstnmesec">How did you hear about us? :</div>
+    <div class="firstnmesec"><form:label path="informationsource">How did you hear about us? :</form:label></div>
     <div class="fildssection">
 
-        <select class="jmpPrt" name="jumpMenu">
-          <option>Select</option>
-        </select>
+        <form:select class="jmpPrt" name="jumpMenu" path="informationsource" >
+           <%@ include file="/WEB-INF/jsp/util/informationsource.jsp"%>
+        </form:select>
 
     </div>
     </div>
    <div class="bigtxtprt2">
 <div class="sleckboxprt">
   <div class="indvRadio">
-    <input name="input3" type="checkbox" value="" />
+    <input name="input3" type="checkbox" value="" class="required"/>
   </div>
   <div class="slecktxtprt2">
   I have read and accept the Marketing supermart Terms of Service .
@@ -156,7 +121,8 @@
 <div class="fstNmePrt">
 
 <div class="continuebtn">
-	<div class="continuebar45"><a href="registration-marketers-more.html">Continue</a></div>
+	<!--   <div class="continuebar45"><a href="#" onclick="document.forms['regMarketerForm'].submit(); return false;">Continue</a></div> -->
+    <input class="continuebar" name="submit" type="submit" value="Continue" />
 <!--<input class="continuebar" name="" type="submit" value="Continue" />-->
 </div>
 
@@ -167,7 +133,8 @@
     
     
     
-    </form>
+</form:form>    
+    <!-- Registration marketers form END -->
     </div>
     </div>
     
@@ -304,7 +271,7 @@
     <div class="clr"></div>
     <div class="copy-box">
       <div class="copy-link"><a href="#">Help</a> | <a href="#">About Us</a> | <a href="#">Guidelines</a> | <a href="#">Press</a> | <a href="#">Terms of use</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></div>
-      <div class="copy-rttxt">© 2013 Marketing Supermart. </div>
+      <div class="copy-rttxt">Â© 2013 Marketing Supermart. </div>
       <div class="clr"></div>
     </div>
     <div class="clr"></div>

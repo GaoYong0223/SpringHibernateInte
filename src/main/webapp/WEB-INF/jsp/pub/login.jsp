@@ -9,7 +9,7 @@
 <title>Marketing Supermart</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="/js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
 
 <style type="text/css">
 * 

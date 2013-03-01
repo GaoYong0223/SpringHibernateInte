@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.gy.marketting.supermart.entity.User;
  
 @Controller
 public class LoginController {
@@ -28,6 +30,8 @@ public class LoginController {
 	
 	@RequestMapping("/index")
 	public String listContacts(ModelMap model, Principal principal) {
+		logger.debug("listContacts");
+		model.get("name");
 		return "/pub/index";
 	}
  
@@ -67,9 +71,17 @@ public class LoginController {
  
 	}
 	
+	@RequestMapping(value="/registration-thankyou", method = RequestMethod.GET)
+	public String thankyou(ModelMap model) {
+		
+		return "pub/registration-thankyou";
+ 
+	}
+	
 	@RequestMapping(value="/registrationform", method = RequestMethod.POST)
-	public String registrationForm(@RequestParam("registType") String type) {
+	public String registrationForm(@RequestParam("registType") String type, ModelMap model) {
 		logger.debug("registrationForm type: {}", type);
+		model.addAttribute("user", new User());
 		if(type!=null && type.equals("marketer")){
 			return "pub/registration-marketers";
 		}else if(type!=null && type.equals("talent")){
