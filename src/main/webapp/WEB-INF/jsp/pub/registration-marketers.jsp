@@ -50,7 +50,7 @@ p { clear: both; }
     
     <!-- Registration marketers form start -->
     
-    <form:form id="regMarketerForm" name="regMarketerForm" method="post" action="registrationmarketer" commandName="user">
+    <form:form id="regMarketerForm" name="regMarketerForm" method="post" action="registrationmarketer" commandName="user" enctype="multipart/form-data">
     <div class="fstNmePrt">
     <div class="firstnmesec"><form:label path="firstname">First Name :</form:label></div>
     <div class="fildssection"><form:input name="" type="text" path="firstname" class="required" maxlength="40"/></div>
@@ -106,6 +106,9 @@ p { clear: both; }
 
     </div>
     </div>
+    
+    
+        
    <div class="bigtxtprt2">
 <div class="sleckboxprt">
   <div class="indvRadio">

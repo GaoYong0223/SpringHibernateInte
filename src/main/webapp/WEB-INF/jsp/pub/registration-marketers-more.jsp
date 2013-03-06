@@ -14,6 +14,15 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 
+<script language="javascript">
+function submitLater()
+{
+    this.form.action = "registrationsubmitlater";
+    this.form.submit();
+    return true;
+}
+</script>
+
 <style type="text/css">
 label.error { float: left; display:inline-block; color: red; padding-left: .5em; vertical-align: top; }
 p { clear: both; }
@@ -48,11 +57,19 @@ p { clear: both; }
     <div class="signUparea">
       <div class="tlusPrtmain">
       
-      <input id="username" name="username" type="hidden" value="${username}"/>
+      
       <!--  Form Start -->
-      <form:form id="regMarketerForm2" name="regMarketerForm2" method="post" action="registrationSuccess" commandName="user" enctype="multipart/form-data">
+      <form:form id="regMarketerForm2" name="regMarketerForm2" method="post" action="registrationsuccess" commandName="user" enctype="multipart/form-data">
       
-      
+      <input id="user" name="user" type="hidden" value="${user}"/>
+      <form:input name="" type="hidden" path="firstname" value="${user.firstname }"/>
+      <form:input name="" type="hidden" path="lastname" value="${user.lastname }"/>
+      <form:input name="" type="hidden" path="email" value="${user.email }"/>
+      <form:input name="" type="hidden" path="companyname" value="${user.companyname }"/>
+      <form:input name="" type="hidden" path="country" value="${user.country }"/>
+      <form:input name="" type="hidden" path="username" value="${user.username}"/>
+      <form:input name="" type="hidden" path="password" value="${user.password}"/>
+      <form:input name="" type="hidden" path="informationsource" value="${user.informationsource}"/>
         <div class="yourInt">
         <p>Input some tags for your interest</p>
         <div class="comntsBox">
@@ -63,16 +80,18 @@ p { clear: both; }
                 <div class="yourInt">
         <p>Upload your resume/CV</p>
         <div class="browseArea">
-          <form:input name="" type="file" path="resume" class="required"/>
+          <form:input name="resume" type="file" path="resume" class="required"/>
         </div>
  <div class="browseArea2">
    <div class="nextBtnprt">
    <!--<input class="sbmtMain" name="" type="submit" value="Next" />-->
-   <div class="sbmtMain"><a href="registration-thankyou">Next</a></div>
+   <!-- <div class="sbmtMain"><a href="registration-thankyou">Next</a></div> -->
+   <input class="sbmtMain2" name="submit" type="submit" value="Next" />
    </div>
       <div class="nextBtnprt2">
-      <div class="sbmtMain"><a href="registration-thankyou">Do it later</a></div>
-   <!--<input class="sbmtMain2" name="" type="submit" value="Do it later" />-->
+      <!-- <div class="sbmtMain"><a href="registration-thankyou">Do it later</a></div>  -->
+      <input class="sbmtMain2" name="submit" type="submit" value="Do it later" onclick="submitLater()" />
+   
    </div>
    
  </div>

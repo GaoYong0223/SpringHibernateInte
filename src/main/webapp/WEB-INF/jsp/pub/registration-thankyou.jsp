@@ -1,4 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,66 +13,7 @@
 <body class="inner">
 <div class="wrapper2">
   <div class="main-container">
-    <!--header start-->
-    <div class="header">
-      <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" /></a></div>
-      <div class="top-nav">
-        <div class="left-navi">
-          <ul>
-            <li><a href="#">Who<br/>
-              <span>we are</span></a></li>
-            <li><a href="#">How<br/>
-              <span>to contact</span></a></li>
-            <li><a href="#">Why<br/>
-              <span>Choose us</span></a></li>
-            <li><a href="#">How<br/>
-              <span>it works</span></a></li>
-          </ul>
-        </div>
-        <div class="top-leftic"><img src="images/f-login.png" alt="" /></div>
-        <div class="right-navi">
-          <ul>
-             <li><a href="login.html">Log In</a></li>
-            <li><a href="registration.html">Sign Up</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </div>
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
-      <div class="mid-nav">
-        <div class="navigation">
-          <ul>
-            <li><a href="projects/projects-categories.html">Projects</a></li>
-            <li><a href="jobs/jobs-categories.html">Jobs</a></li>
-            <li><a href="freelancers/talents-categories.html">Talents</a></li>
-            <li><a href="deals/deals-categories.html">Deals</a></li>
-          </ul>
-        </div>
-        <div class="search-box">
-          <div class="search-txt"> Search :</div>
-          <div class="search-drop">
-            <select name="">
-              <option>sample 1</option>
-              <option>sample 2</option>
-            </select>
-          </div>
-          <div class="search-inn">
-            <div class="search-inbox">
-              <input name="" type="text" />
-            </div>
-            <div class="search-ico"><a href="#"><img src="images/search-ic.png" alt="" /></a></div>
-            <div class="clr"></div>
-          </div>
-          <div class="clr"></div>
-        </div>
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
-     
-    </div>
-    <div class="clr"></div>
-    <!--header end-->
+    <%@ include file="/WEB-INF/jsp/pub/header.jsp"%>
     <!--middle start-->
     <div class="middle-container">
     
@@ -79,7 +24,7 @@
     
     
     <div class="marketrs">
-<h4>Thank you, David Thomas, you have registered an account with Marketing Supermart.</h4>
+<h4>Thank you, ${username}, you have registered an account with Marketing Supermart.</h4>
 <span>Below are some projects and deals matching your interest :</span>
 <div class="prjcts">
   <div class="leftprjctsprt">
@@ -274,7 +219,7 @@
     <div class="clr"></div>
     <div class="copy-box">
       <div class="copy-link"><a href="#">Help</a> | <a href="#">About Us</a> | <a href="#">Guidelines</a> | <a href="#">Press</a> | <a href="#">Terms of use</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></div>
-      <div class="copy-rttxt">© 2013 Marketing Supermart.  </div>
+      <div class="copy-rttxt">Â© 2013 Marketing Supermart.  </div>
       <div class="clr"></div>
     </div>
     <div class="clr"></div>
